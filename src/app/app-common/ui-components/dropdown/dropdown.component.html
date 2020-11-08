@@ -1,0 +1,17 @@
+<select name="app-common-select" (change)="onDropdownChange($event)">
+  <ng-container *ngFor="let dropdownOption of dropdownOptions">
+    <ng-template
+      *ngIf="selected.value == dropdownOption.value; else notSelected"
+    >
+      <option value="{{ dropdownOption.value }}" selected>
+        {{ dropdownOption.displayValue }}
+      </option>
+    </ng-template>
+
+    <ng-template #notSelected>
+      <option value="{{ dropdownOption.value }}">
+        {{ dropdownOption.displayValue }}
+      </option>
+    </ng-template>
+  </ng-container>
+</select>
